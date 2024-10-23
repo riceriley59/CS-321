@@ -19,7 +19,7 @@
 
 \begin{document}
 
-\noindent Riley Rice\\CS321\\10-21-2024
+\noindent Riley Rice\\CS321\\10-23-2024
 
 \begin{center}\noindent {\Huge \textbf{Homework 2}}\end{center}
 
@@ -121,7 +121,7 @@ $\emptyset$ & $\emptyset$ & $\emptyset$  \\
 
 \vspace{5mm}
 
-\noindent DFA Transition Graph:
+\noindent Equivalent DFA Transition Graph:
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -195,6 +195,10 @@ $\tilde{L} = \{\tilde{\omega}|\omega \in L\},$
 
 \noindent\textbf{Solution:}
 
+\vspace{1mm}
+
+\noindent \textbf{Note:} Regular expressions can only represent regular languages
+
 \vspace{5mm}
 
 \noindent let $L$ be a regular language over the alphabet $\sum = \{a, b\}$ which can be represented by the regular expression $r = a^*b$ or all strings that consist of zero or more a's followed by a b. Some example strings in $L$ are: 
@@ -203,26 +207,26 @@ $\tilde{L} = \{\tilde{\omega}|\omega \in L\},$
 	\item $ab$
 	\item $aab$
 	\item $aaab$
-	\item and so on...
 \end{itemize}
 
-\noindent We now want to find $\tilde{L}$, or the set of strings that are the reverse of every string in $L$. So let's reverse the regular expression $r$ into $\tilde{r} = \tilde{(ba^*)} = ba^*$, and now $\tilde{r} = ba^*$ represents the reverse $\tilde{L}$. This represents all strings that start with a b that are followed by zero or more a's. Some example strings in $\tilde{L}$ are:
+\noindent We now want to find $\tilde{L}$, or the set of strings that are the reverse of every string in $L$. So let's reverse the regular expression $r$ into $\tilde{r} = \tilde{a^*b} = ba^*$, and so $\tilde{r} = ba^*$, which only uses closed operations, and represents the reverse regular language $\tilde{L}$. This represents all strings that start with a b that are followed by zero or more a's. Some example strings in $\tilde{L}$ are:
 \begin{itemize}
 	\item $b$
 	\item $ba$
 	\item $ba$
 	\item $baaa$
-	\item and so on...
 \end{itemize}
 
 \noindent To verify this, let's take some example strings from $L$ and reverse them and make sure that they are in $\tilde{L}$.
 \begin{itemize}
-	\item If $\omega = b \in L$, then $\tilde{\omega} = b \in \tilde{L}$
-	\item If $\omega = ab \in L$, then $\tilde{\omega} = ba \in \tilde{L}$
-	\item If $\omega = aab \in L$, then $\tilde{\omega} = baa \in \tilde{L}$
+	\item If $\omega = b \in L$, then $\tilde{\omega} = b \in \tilde{L}$ (True)
+	\item If $\omega = ab \in L$, then $\tilde{\omega} = ba \in \tilde{L}$ (True)
+	\item If $\omega = aab \in L$, then $\tilde{\omega} = baa \in \tilde{L}$ (True)
 \end{itemize}
 
-\noindent All the reversed strings are in $\tilde{L}$ and is accurately represented by the regular expression $\tilde{r} = ba^*$ which proves that the languages $L$ and $\tilde{L}$ are indeed regular.
+\noindent All the reversed strings are in $\tilde{L}$ and is accurately represented by the reversed regular expression $\tilde{r} = ba^*$ which proves that the languages $L$ and $\tilde{L}$ are indeed regular and closed under reversal.
+
+\vspace{5mm}
 
 \noindent QED
 
