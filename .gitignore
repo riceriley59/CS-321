@@ -7,3 +7,7 @@
 !*.pdf
 !*.png
 !.gitignore
+
+
+!homework*/
+!images/
