@@ -1,8 +1,9 @@
 # Ignore everything
 *
 
-# Allow .md, .tex, and .pdf files
+# Allow .md, .tex, .png, and .pdf files
 !*.md
 !*.tex
 !*.pdf
+!*.png
 !.gitignore
