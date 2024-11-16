@@ -93,6 +93,10 @@
 
 \vspace{5mm}
 
-\noindent In order to construct a CFG for this the context-free language defined by $L$ we have to cover a few cases. First off we want to add the base cases which include $\epsilon$, $ab$, and $ba$. Then we want to allow for the base cases to be called recursively which is why we will add $aSb$ and $bSa$ to the CFG. Then finally we will want to make it so that two balanced substrings of $a$'s and $b$'s can be concatenated together which can be done by adding the $SS$ rule. You'll notice that all these rules add the same amount of $a$'s and $b's$ in different orders which keeps the strings balanced and accounts for the different combinations. With all these rules combined the CFG defines $L$ and defines every string using the alphabet $\sum = \{a, b\}$ where the number of $a$'s and $b$'s are the same. 
+\noindent In order to construct a CFG for this the context-free language defined by $L$ we have to cover a few cases. First off we want to add the base cases which include $\epsilon$, $ab$, and $ba$. Then we want to allow for the base cases to be called recursively which is why we will add $aSb$ and $bSa$ to the CFG. Then finally we will want to make it so that two balanced substrings of $a$'s and $b$'s can be concatenated together which can be done by adding the $SS$ rule. You'll notice that all these rules add the same amount of $a$'s and $b's$ in different orders which keeps the strings balanced and accounts for the different combinations. With all these rules combined the CFG defines $L$ and defines every string using the alphabet $\sum = \{a, b\}$ where the number of $a$'s and $b$'s are the same. Since a CFG can define the language $L$ then that proves that $L$ is a context-free language.
+
+\vspace{5mm}
+
+\noindent QED
 
 \end{document}
