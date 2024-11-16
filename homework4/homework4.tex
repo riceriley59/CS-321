@@ -1,0 +1,98 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+\noindent Riley Rice (riceri@oregonstate.edu)\\CS321\\11-16-2024
+
+\begin{center}\noindent {\Huge \textbf{Homework 4}}\end{center}
+
+\section*{Problem 1: [10 points]}
+
+\noindent For each of the language below, construct a CFG that decides this language. All languages are over alphabet $\sum = {a,b}$. In addition to the CFG itself, provide a brief explanation (1-3 sentences) of the idea behind your construction. 
+
+\vspace{5mm}
+
+\noindent \textbf{(a)} The language is $\{w | w$ has at least 3 characters, and it's first, middle, and last characters are all $a\}$. (Note that this implies that the length of $w$ is odd). For example, $aaaaa$, and $abaaa$ are in the language, while $a, aba$ and $aab$ are not.
+
+\vspace{5mm}
+
+\noindent\textbf{Solution:}
+ 
+\vspace {5mm}
+
+\noindent 1. $S \rightarrow aTa$\\2. $T \rightarrow aTa | bTb | a$
+
+\vspace {5mm}
+
+\noindent \textbf{Explanation:}
+
+\vspace{5mm}
+
+\noindent This CFG defines the context-free language described above by only defining a few rules. The first start rule $aTa$ ensures that the strings will have at least 3 characters as T will produce at least 1 character and it also ensures that the strings will start and end with an $a$. Then there is 3 options for T as it can put two $a$'s with a recursive $T$ in it. Then finally you can just choose an $a$ which makes it so that the middle character will be an a as well and that the string is odd. With this we have met all the requirements for the $w$'s in the language.
+
+\vspace{5mm}
+
+\noindent \textbf{(b)} The language is $\{a^nb^m | m \leq n \leq 2m\}$. For example, $\epsilon, aabb, aaabb$, and $aaaabb$ are in the language, while $a$ and $abb$ are not.
+
+\vspace{5mm}
+
+\noindent\textbf{Solution:}
+ 
+\vspace {5mm}
+
+\noindent 1. $S \rightarrow aaSb|aSb|aab|ab|\epsilon$
+
+\vspace {5mm}
+
+\noindent \textbf{Explanation:}
+
+\vspace{5mm}
+
+\noindent This CFG defines the context-free language described above by defining a few rules with a few options. This language is strings which have as many to twice as many $a$'s in relation to the $b$'s. With this in mind we can just recursively call the S rule which will allow a ratio of 1 to 2 times as many $a$'s compared to $b$'s. Although, $\epsilon$ is also in the language so we will allow that to be a terminal string before recursively calling $S$.
+
+\newpage
+
+\section*{Problem 2: [10 points]}
+
+\noindent Let $L = \{w \in \{a, b\}^* | w$ has the same number of $a$'s and $b$'s$\}$. Show that $L$ is a context-free language by giving either a CFG of a PDA that decides it. In addition to the CFG or PDA itself, provide a brief explanation (1-3 sentences) of the idea behind your construction.
+
+\vspace{5mm}
+
+\noindent \textbf{Hint:} This is tricky to think about, but it shouldn't be too hard to find a solution online. You are free to do this; however, (1) You need to make sure that the solution you find is correct, (2) YOU MUST INCLUDE A LINK TO THE WEBPAGE, and (3) YOU MUST COME UP WITH THE EXPLANATION ON YOUR OWN, i.e., you need to understand idea behind the solution and explain it in your own words.
+
+\vspace{5mm}
+
+\noindent\textbf{Solution:}
+
+\vspace{5mm}
+
+\noindent 1. $S \rightarrow SS|aSb|bSa|ab|ba|\epsilon$
+
+\vspace{5mm}
+
+\noindent\textbf{Explanation:}
+
+\vspace{5mm}
+
+\noindent In order to construct a CFG for this the context-free language defined by $L$ we have to cover a few cases. First off we want to add the base cases which include $\epsilon$, $ab$, and $ba$. Then we want to allow for the base cases to be called recursively which is why we will add $aSb$ and $bSa$ to the CFG. Then finally we will want to make it so that two balanced substrings of $a$'s and $b$'s can be concatenated together which can be done by adding the $SS$ rule. You'll notice that all these rules add the same amount of $a$'s and $b's$ in different orders which keeps the strings balanced and accounts for the different combinations. With all these rules combined the CFG defines $L$ and defines every string using the alphabet $\sum = \{a, b\}$ where the number of $a$'s and $b$'s are the same. 
+
+\end{document}
